@@ -7,7 +7,7 @@ use Firebase\JWT\Key;
 /**
  * (No code provided in the selection.)
  * @property CI_Session $session
- 
+
  * Please provide the code selection you want documented.
  */
 class JwtAuth
@@ -57,16 +57,16 @@ class JwtAuth
 
         $CI = &get_instance();  // Dapatkan instance CI
         $token = $CI->session->userdata('token');
-        if (!$token)
-        
-			redirect('auth/login_form');
+        if (!$token) {
+            redirect('auth/login_form');
+        }
 
         // Cek token di DB
         $row = $this->CI->db->get_where('user_tokens', ['token' => $token])->row();
         if (!$row || strtotime($row->expired_at) < time()) {
             $this->CI->session->unset_userdata(['token', 'user_id']);
             $this->CI->session->set_flashdata('error', 'Session expired. Please login again.');
-			redirect('auth/login_form');
+            redirect('auth/login_form');
         }
 
         return $row->user_id;

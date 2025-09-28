@@ -95,7 +95,7 @@ class Auth extends CI_Controller
     {
         $token = $this->session->userdata('token');
         if ($token) {
-            redirect('/');
+            $this->load->view('auth/login');
         }
         $this->load->view('auth/login');
     }
@@ -132,9 +132,7 @@ class Auth extends CI_Controller
         // Simpan token di session
         $this->session->set_userdata('token', $token);
         $this->session->set_userdata('user', $user);
-        // $this->session->set_userdata('role', $role);
 
-        // $this->load->view('dashboard');
         redirect('/');  // atau halaman utama
     }
 

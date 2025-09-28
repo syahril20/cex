@@ -37,18 +37,11 @@ class Welcome extends CI_Controller
 	 */
 	public function index()
 	{
-
-		// var_dump(getenv('DB_HOST'));
-		// var_dump($_ENV['DB_HOST']);
-		// echo "<script>console.log('Debug: ', " . getenv('DB_HOST') . ");</script>";
-		// echo "<script>console.log('Debug: ', " . $_ENV['DB_HOST'] . ");</script>";
-
-
 		$this->jwtauth->check_token();
 		$session = $this->session->userdata();
 
 		if (!isset($session['user']) || $session['user'] == null) {
-			redirect('auth/login_form');
+			$this->load->view('auth/login_form');
 			return;
 		}
 
@@ -64,5 +57,6 @@ class Welcome extends CI_Controller
 		if ($user->code == 'AGENT') {
 			$this->load->view('base_page', ['data' => $data]);
 		}
+
 	}
 }
