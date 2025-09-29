@@ -37,26 +37,31 @@ class Welcome extends CI_Controller
 	 */
 	public function index()
 	{
-		$this->jwtauth->check_token();
-		$session = $this->session->userdata();
+		$this->load->view('auth/login');
+		// $this->jwtauth->check_token();
+		// $session = $this->session->userdata();
+		// $token = $this->session->userdata('token');
+		// if (!$token) {
+		// 	$this->load->view('auth/login');
+		// }
 
-		if (!isset($session['user']) || $session['user'] == null) {
-			$this->load->view('auth/login_form');
-			return;
-		}
+		// if (!isset($session['user']) || $session['user'] == null) {
+		// 	$this->load->view('auth/login');
+		// 	return;
+		// }
 
-		$user = $session['user'];
-		$data['session'] = $session;
-		$data['page'] = 'Dashboard';
-		if ($user->code == 'SUPER_ADMIN') {
-			$this->load->view('superadmin/superadmin_dashboard');
-		}
-		if ($user->code == 'ADMIN') {
-			$this->load->view('admin/admin_dashboard');
-		}
-		if ($user->code == 'AGENT') {
-			$this->load->view('base_page', ['data' => $data]);
-		}
+		// $user = $session['user'];
+		// $data['session'] = $session;
+		// $data['page'] = 'Dashboard';
+		// if ($user->code == 'SUPER_ADMIN') {
+		// 	$this->load->view('superadmin/superadmin_dashboard');
+		// }
+		// if ($user->code == 'ADMIN') {
+		// 	$this->load->view('admin/admin_dashboard');
+		// }
+		// if ($user->code == 'AGENT') {
+		// 	$this->load->view('base_page', ['data' => $data]);
+		// }
 
 	}
 }
