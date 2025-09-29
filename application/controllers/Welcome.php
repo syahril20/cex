@@ -37,7 +37,7 @@ class Welcome extends CI_Controller
 	 */
 	public function index()
 	{
-		$this->load->view('auth/login');
+		$this->load->view('welcome_message');
 		// $this->jwtauth->check_token();
 		// $session = $this->session->userdata();
 		// $token = $this->session->userdata('token');
