@@ -1,23 +1,7 @@
 <?php
-defined('BASEPATH') or exit('No direct script access allowed');
+defined('BASEPATH') OR exit('No direct script access allowed');
 
-/**
- * (No code provided in the selection.)
- * @property CI_DB $db
- * @property CI_Session $session
- * @property User_model $User_model
- * @property JwtAuth $jwtauth
- * @property CI_Input $input
- * Please provide the code selection you want documented.
- */
-class Welcome extends CI_Controller
-{
-
-	public function __construct()
-	{
-		parent::__construct();
-		$this->load->library('JwtAuth');
-	}
+class Welcome extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -33,35 +17,9 @@ class Welcome extends CI_Controller
 	 * So any other public methods not prefixed with an underscore will
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/userguide3/general/urls.html
-	 * 
 	 */
 	public function index()
 	{
 		$this->load->view('welcome_message');
-		// $this->jwtauth->check_token();
-		// $session = $this->session->userdata();
-		// $token = $this->session->userdata('token');
-		// if (!$token) {
-		// 	$this->load->view('auth/login');
-		// }
-
-		// if (!isset($session['user']) || $session['user'] == null) {
-		// 	$this->load->view('auth/login');
-		// 	return;
-		// }
-
-		// $user = $session['user'];
-		// $data['session'] = $session;
-		// $data['page'] = 'Dashboard';
-		// if ($user->code == 'SUPER_ADMIN') {
-		// 	$this->load->view('superadmin/superadmin_dashboard');
-		// }
-		// if ($user->code == 'ADMIN') {
-		// 	$this->load->view('admin/admin_dashboard');
-		// }
-		// if ($user->code == 'AGENT') {
-		// 	$this->load->view('base_page', ['data' => $data]);
-		// }
-
 	}
 }
